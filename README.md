@@ -744,7 +744,10 @@ After:   ZSH_THEME="powerlevel10k/powerlevel10k"
 **Alternative (using sed):**
 ```bash
 # Automatically replace the theme line
+# macOS:
 sed -i '' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
+# Linux:
+# sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
 ```
 
 **Step 3: Apply changes and run configuration wizard:**
@@ -881,7 +884,8 @@ Hide the username:
 # In ~/.p10k.zsh, find the context section and modify these settings:
 typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
 typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
-# Note: These may be commented out - uncomment them or add them to the file
+# Note: Powerlevel10k uses POWERLEVEL9K variable names for backward compatibility
+# These may be commented out - uncomment them or add them to the file
 ```
 
 Show Python version:
@@ -911,7 +915,10 @@ cd oh-my-zsh-agnoster-fcamblor/
 ./install
 
 # Step 2: Update .zshrc
+# macOS:
 sed -i '' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' ~/.zshrc
+# Linux:
+# sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' ~/.zshrc
 
 # Step 3: Apply changes
 source ~/.zshrc
