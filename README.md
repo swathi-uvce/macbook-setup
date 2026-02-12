@@ -615,7 +615,7 @@ ls -la ~/
 **Powerlevel10k (Rainbow style):**
 ```
 ╭─ user@mac  ~/projects/myapp   main ✔  3⇡  2⇣  1✎  
-╰─ 
+╰─ ❯ 
 ```
 
 **Powerlevel10k (Lean style):**
@@ -663,8 +663,8 @@ Powerlevel10k is a **high-performance ZSH theme** that emphasizes speed, flexibi
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │  ~/projects/myapp  main ✔  3⇡  2⇣  1✎                    │
-│  └──────┬────────┘  └┬─┘ └─┬┘ └─┬┘ └─┬┘ └─┬┘              │
-│       Path        Branch Clean Up Down Staged              │
+│  └──────┬────────┘  └┬─┘ └─┬┘ └─┬┘ └─┬┘ └─┬──┘             │
+│       Path        Branch Clean Up Down Staged               │
 │                                                              │
 │  ❯ _                                                         │
 │  └─ Prompt cursor                                            │
@@ -878,9 +878,10 @@ vi ~/.p10k.zsh
 
 Hide the username:
 ```bash
-# In ~/.p10k.zsh, find and uncomment:
+# In ~/.p10k.zsh, find the context section and modify these settings:
 typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
 typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
+# Note: These may be commented out - uncomment them or add them to the file
 ```
 
 Show Python version:
