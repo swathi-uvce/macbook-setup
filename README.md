@@ -847,7 +847,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 You need to make **TWO changes** to `~/.zshrc`:
 
-**Change 1: Add to plugins array**
+**Update your plugins array in .zshrc:**
 ```bash
 # Open your .zshrc
 vi ~/.zshrc
@@ -855,19 +855,12 @@ vi ~/.zshrc
 # Find the plugins line (around line 70-80):
 plugins=(git)
 
-# Change it to:
+# Change it to (zsh-syntax-highlighting MUST be LAST):
 plugins=(git zsh-syntax-highlighting)
 ```
 
-**Change 2: Source the plugin at the END of .zshrc**
-```bash
-# Scroll to the very end of the file
-# Add this line as the LAST line:
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-```
-
-> ⚠️ **CRITICAL:** The `source` line **MUST be at the END** of `.zshrc`!  
-> If it's not last, syntax highlighting won't work properly.
+> ⚠️ **CRITICAL:** `zsh-syntax-highlighting` **MUST be LAST** in the plugins array!  
+> If it's not last, syntax highlighting won't work properly with other plugins.
 
 **Complete .zshrc structure:**
 ```bash
@@ -875,7 +868,7 @@ source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighti
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
-# Plugin configuration
+# Plugin configuration (zsh-syntax-highlighting MUST be last)
 plugins=(
   git
   zsh-syntax-highlighting
@@ -884,15 +877,12 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # ... other configurations ...
-
-# THIS MUST BE AT THE VERY END ↓
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ```
 
-**Quick Edit (all-in-one):**
+**Quick Edit:**
 ```bash
-# Automatically add plugin to .zshrc
-echo '\n# Syntax highlighting (must be at the end)\nsource ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
+# Edit plugins in .zshrc using sed
+sed -i '' 's/plugins=(git)/plugins=(git zsh-syntax-highlighting)/' ~/.zshrc
 ```
 
 ### 🔄 Apply Changes
@@ -1060,13 +1050,16 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 > )
 > ```
 
+> 💡 **Note:** Unlike syntax-highlighting, zsh-autosuggestions doesn't need manual sourcing.  
+> Simply adding it to the plugins array is enough! Oh My Zsh will load it automatically.
+
 **Complete .zshrc example:**
 ```bash
 # ~/.zshrc
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
-# Plugins (order matters!)
+# Plugins (order matters! zsh-syntax-highlighting MUST be last)
 plugins=(
   git
   zsh-autosuggestions
@@ -1076,9 +1069,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # ... other configurations ...
-
-# Syntax highlighting MUST be at the end
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ```
 
 ### 🔄 Apply Changes
@@ -1172,8 +1162,8 @@ plugins=(
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
-# Source syntax highlighting
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Optional: Hide username in prompt (only show on remote hosts)
+# DEFAULT_USER=$(whoami)
 ```
 
 Apply changes:
