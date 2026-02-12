@@ -15,7 +15,7 @@
 - [Step 3: Install Powerline](#3️⃣-install-powerline)
 - [Step 4: Install PowerFonts](#4️⃣-install-powerfonts)
 - [Step 5: Install Color Scheme](#5️⃣-install-solarized-color-scheme)
-- [Step 6: Install Theme](#6️⃣-install-agnoster-theme)
+- [Step 6: Install Theme](#6️⃣-install-theme-powerlevel10k-recommended)
 - [Step 7: Install Syntax Highlighting](#7️⃣-install-syntax-highlighting-plugin)
 - [Step 8: Install Auto-suggestions](#8️⃣-install-auto-suggestions-plugin-optional)
 - [Final Configuration](#-final-configuration)
@@ -64,7 +64,7 @@ Before starting, ensure you have:
 | Powerline | Status line dependency |
 | PowerFonts | Special characters support |
 | Solarized | Eye-friendly color scheme |
-| Agnoster | Beautiful prompt theme |
+| Powerlevel10k | Fast, customizable prompt theme |
 | Plugins | Syntax highlighting & auto-complete |
 
 ---
@@ -582,104 +582,142 @@ ls -la ~/
 
 ---
 
-## 6️⃣ Install Agnoster Theme
+## 6️⃣ Install Theme (Powerlevel10k Recommended)
 
-### 🤔 WHY do we need Agnoster?
-```
-Default Theme      →    Agnoster Theme
-  username ~/$           ⚡ username  directory  git:master ✓
-  Plain text             Beautiful segments
-  No git info            Full git status
-  Boring prompt          Eye-catching design
-```
-**Problem:** Default Oh My Zsh theme (robbyrussell) is minimal and lacks visual appeal.  
-**Solution:** Agnoster provides a beautiful, information-rich prompt with clear visual segments.
+### 🆚 Theme Comparison: Powerlevel10k vs Agnoster
 
-### 📦 WHAT is Agnoster?
-Agnoster is a **ZSH theme optimized for people who use Git**. It shows your context at a glance with beautiful powerline-style separators.
+| Aspect | Powerlevel10k | Agnoster |
+|--------|---------------|----------|
+| **⚡ Performance** | 10-100x faster rendering | Standard speed |
+| **🚀 Startup Time** | Instant prompt (no lag) | Slight delay on startup |
+| **🎨 Customization** | 1000+ configuration options | Limited customization |
+| **🧙 Setup Process** | Interactive wizard (`p10k configure`) | Manual `.zshrc` editing |
+| **📊 Git Status** | Detailed (stash, ahead/behind, staged, untracked) | Basic (clean/dirty only) |
+| **🎯 Icons** | 100+ glyphs & icons | Basic Powerline symbols |
+| **🔤 Font Support** | Works with any Nerd Font + Powerline | Requires Powerline fonts |
+| **📱 Prompt Styles** | 4 built-in styles (Lean, Classic, Rainbow, Pure) | Single fixed style |
+| **⏱️ Transient Prompt** | ✅ Cleans up old prompts | ❌ Not available |
+| **💾 Instant Prompt** | ✅ Shows prompt before Zsh loads | ❌ Not available |
+| **🔧 Maintenance** | Actively maintained (2024+) | Minimal updates |
+| **👥 Community** | 50,000+ GitHub stars | Included with Oh My Zsh |
+| **📚 Documentation** | Extensive with troubleshooting | Basic |
+| **🎭 Segments** | 40+ customizable segments | Fixed segments |
+| **🌈 Color Schemes** | Automatic or custom colors | Depends on terminal theme |
+| **⌨️ Typing Experience** | No input lag ever | Occasional lag with complex prompts |
+| **🔄 Hot Reload** | ✅ Changes apply instantly | Requires `source ~/.zshrc` |
 
-**Prompt Breakdown:**
-```
-┌────────────────────────────────────────────────────────────┐
-│  ⚡ user  ~/projects/myapp  git:master ✓                 │
-│   └─┬─┘  └────┬────────┘  └─────┬──────┘                │
-│     │         │                  │                        │
-│   User    Directory          Git Branch                   │
-│  Segment   Segment            & Status                    │
-└────────────────────────────────────────────────────────────┘
-```
+**Winner: Powerlevel10k** 🏆 - Superior in almost every aspect while maintaining the beautiful aesthetic of Agnoster.
 
-**Visual Features:**
-- **User Segment** (Lightning bolt ⚡ + username)
-  - Shows current user
-  - Highlights if you're root (red background)
-  
-- **Directory Segment** (Folder icon + path)
-  - Shows current working directory
-  - Shortened for long paths
-  
-- **Git Segment** (Branch name + status)
-  - ✓ = Clean working directory
-  - ✗ = Uncommitted changes
-  - ± = Staged changes
-  - Shows current branch name
+---
 
-**Status Icons:**
+### 👀 Visual Comparison
+
+**Powerlevel10k (Rainbow style):**
 ```
-  ✓  Clean (all committed)
-  ✗  Dirty (uncommitted changes)
-  ±  Staged (ready to commit)
-  ⚡ Lightning (you're on a branch)
-  🔒 Lock (read-only directory)
+╭─ user@mac  ~/projects/myapp   main ✔  3⇡  2⇣  1✎  
+╰─ ❯ 
 ```
 
-### 🛠️ HOW to install Agnoster Theme
+**Powerlevel10k (Lean style):**
+```
+~/projects/myapp main ✔ 3⇡ 2⇣                     10:30:45
+❯ 
+```
+
+**Agnoster:**
+```
+⚡ user  ~/projects/myapp  git:main ✓
+→ 
+```
+
+---
+
+### Option A: Powerlevel10k (Recommended) ⭐
+
+#### 🤔 WHY do we need Powerlevel10k?
+```
+Default Theme        →    Powerlevel10k Theme
+  username ~/$             ❯ ~/projects  main ✔  3⇡  
+  Plain text               Beautiful, fast segments
+  No git details           Full git status with icons
+  Slow startup             Instant prompt
+  Basic info               40+ customizable segments
+```
+**Problem:** Traditional themes slow down your terminal and lack detailed information.  
+**Solution:** Powerlevel10k provides instant startup, rich git information, and beautiful visuals with zero performance penalty.
+
+#### 📦 WHAT is Powerlevel10k?
+Powerlevel10k is a **high-performance ZSH theme** that emphasizes speed, flexibility, and out-of-the-box experience. It's the modern evolution of Powerlevel9k with significant performance improvements.
+
+**Key Features:**
+- ⚡ **Instant Prompt** - Shows prompt before Zsh finishes loading (100-1000ms faster startup)
+- 🎨 **4 Built-in Styles** - Choose your look: Rainbow, Lean, Classic, or Pure
+- 🔧 **Interactive Configuration** - Wizard walks you through setup (`p10k configure`)
+- 📊 **Rich Git Integration** - Shows branch, commits ahead/behind, stash count, changes
+- 🌐 **40+ Segments** - Display time, battery, WiFi, Python version, Node version, etc.
+- 🎭 **Transient Prompt** - Old prompts automatically become minimal single-line
+- 🖼️ **Icon-rich** - Supports all Nerd Font icons
+- 🔄 **Hot Reload** - Configuration changes apply without restarting
+
+**Prompt Breakdown (Lean Style):**
+```
+┌──────────────────────────────────────────────────────────────┐
+│  ~/projects/myapp  main ✔  3⇡  2⇣  1✎                    │
+│  └──────┬────────┘  └┬─┘ └─┬┘ └─┬┘ └─┬┘ └─┬──┘             │
+│       Path        Branch Clean Up Down Staged               │
+│                                                              │
+│  ❯ _                                                         │
+│  └─ Prompt cursor                                            │
+└──────────────────────────────────────────────────────────────┘
+```
+
+**Status Icons Explained:**
+```
+✔   Clean working directory (all committed)
+✘   Dirty (uncommitted changes)
+✎   Staged changes (ready to commit)
+⇡3  3 commits ahead of remote
+⇣2  2 commits behind remote
+⚑   Stashed changes exist
++   Untracked files present
+```
+
+#### 🛠️ HOW to install Powerlevel10k
 
 **Installation Flow:**
 ```
-┌──────────────────────────────────────────────────────┐
-│  Step 1: Clone Agnoster enhanced version             │
-│  📥 Downloads optimized Agnoster variant             │
-│  ✨ Includes additional improvements                 │
-└──────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────┐
+│  Step 1: Clone Powerlevel10k repository                │
+│  📥 Downloads theme to Oh My Zsh custom themes          │
+│  📂 ~/.oh-my-zsh/custom/themes/powerlevel10k            │
+└────────────────────────────────────────────────────────┘
           ↓
-┌──────────────────────────────────────────────────────┐
-│  Step 2: Run installation script                     │
-│  🔧 Copies theme to Oh My Zsh themes directory       │
-│  📂 ~/.oh-my-zsh/themes/agnoster.zsh-theme           │
-└──────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────┐
+│  Step 2: Update .zshrc configuration                   │
+│  📝 Set ZSH_THEME="powerlevel10k/powerlevel10k"        │
+│  💾 Save and restart terminal                          │
+└────────────────────────────────────────────────────────┘
           ↓
-┌──────────────────────────────────────────────────────┐
-│  Step 3: Edit .zshrc configuration                   │
-│  📝 Change ZSH_THEME to "agnoster"                   │
-│  💾 Save and apply changes                           │
-└──────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────┐
+│  Step 3: Run configuration wizard                      │
+│  🧙 Interactive setup - choose your style              │
+│  ✨ Wizard creates ~/.p10k.zsh config file             │
+└────────────────────────────────────────────────────────┘
 ```
 
 **Commands:**
 
 ```bash
-# Step 1: Navigate to open source directory
-cd ~/OpenSource
-
-# Step 2: Clone the Agnoster theme repository
-git clone https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor.git
-
-# Step 3: Navigate into the directory
-cd oh-my-zsh-agnoster-fcamblor/
-
-# Step 4: Run the installer
-./install
+# Step 1: Clone Powerlevel10k into Oh My Zsh custom themes directory
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-> 💡 **What the installer does:**
-> - Copies `agnoster.zsh-theme` to `~/.oh-my-zsh/themes/`
-> - Backs up existing agnoster theme (if any)
-> - Sets proper permissions
+> 💡 **What this does:**
+> - Downloads Powerlevel10k theme files
+> - Places them in `~/.oh-my-zsh/custom/themes/powerlevel10k/`
+> - Uses shallow clone (--depth=1) for faster download
 
-### ✏️ Configure Agnoster in .zshrc
-
-**Edit your Zsh configuration:**
+**Step 2: Edit your Zsh configuration:**
 
 ```bash
 # Open .zshrc with vi editor
@@ -691,14 +729,14 @@ vi ~/.zshrc
 ```
 Before:  ZSH_THEME="robbyrussell"
            ↓
-After:   ZSH_THEME="agnoster"
+After:   ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
 **Vi Editor Commands:**
 ```
 1. Press 'i' to enter INSERT mode
 2. Use arrow keys to navigate to the ZSH_THEME line
-3. Change "robbyrussell" to "agnoster"
+3. Change "robbyrussell" to "powerlevel10k/powerlevel10k"
 4. Press 'Esc' to exit INSERT mode
 5. Type ':wq' and press Enter to save and quit
 ```
@@ -706,44 +744,204 @@ After:   ZSH_THEME="agnoster"
 **Alternative (using sed):**
 ```bash
 # Automatically replace the theme line
-sed -i '' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' ~/.zshrc
+# macOS:
+sed -i '' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
+# Linux:
+# sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
 ```
 
-### 🔄 Apply Changes
+**Step 3: Apply changes and run configuration wizard:**
 
-**Option 1: Source the config (fast)**
 ```bash
+# Reload your configuration
+source ~/.zshrc
+
+# The configuration wizard will start automatically
+# If it doesn't, run:
+p10k configure
+```
+
+#### 🧙 Configuration Wizard
+
+The wizard will ask you several questions:
+
+```
+┌────────────────────────────────────────────────┐
+│  Powerlevel10k Configuration Wizard            │
+├────────────────────────────────────────────────┤
+│  1. Does this look like a diamond? ◆           │
+│     → Tests if your font supports icons        │
+│                                                │
+│  2. Does this look like a lock? 🔒             │
+│     → Tests emoji support                      │
+│                                                │
+│  3. Does this look like a Debian logo?         │
+│     → Tests powerline glyphs                   │
+│                                                │
+│  4. Choose prompt style:                       │
+│     • Lean    (minimal, single line)           │
+│     • Classic (two lines, powerline arrows)    │
+│     • Rainbow (colorful, two lines)            │
+│     • Pure    (minimal, inspired by Pure)      │
+│                                                │
+│  5. Character set: Unicode                     │
+│                                                │
+│  6. Show current time? 12-hour / 24-hour       │
+│                                                │
+│  7. Prompt separators: Angled / Rounded        │
+│                                                │
+│  8. Prompt heads: Sharp / Blurred / Slanted    │
+│                                                │
+│  9. Prompt tails: Flat / Blurred / Sharp       │
+│                                                │
+│ 10. Prompt height: One line / Two lines        │
+│                                                │
+│ 11. Prompt spacing: Compact / Fluent / Sparse  │
+│                                                │
+│ 12. Prompt flow: Concise / Fluent              │
+│                                                │
+│ 13. Enable transient prompt? Yes / No          │
+│     (Cleans up old prompts)                    │
+│                                                │
+│ 14. Enable instant prompt? Yes / No            │
+│     (Shows prompt before Zsh loads)            │
+└────────────────────────────────────────────────┘
+```
+
+**Recommended Answers for Beginners:**
+```
+Diamond:    Yes (y)
+Lock:       Yes (y)  
+Debian:     Yes (y)
+Style:      Rainbow (3) or Lean (1)
+Time:       12-hour or 24-hour (your preference)
+Separators: Angled (1)
+Heads:      Sharp (1)
+Tails:      Flat (1)
+Height:     Two lines (2)
+Spacing:    Sparse (3)
+Flow:       Concise (1)
+Transient:  Yes (y)
+Instant:    Yes (y)
+```
+
+> 💡 **Don't worry!** You can always reconfigure later by running:
+> ```bash
+> p10k configure
+> ```
+
+### 🔄 Verification & Customization
+
+**Your prompt should now look amazing!**
+
+Depending on your chosen style:
+
+**Lean Style:**
+```
+~/projects/myapp main ✔ 
+❯ 
+```
+
+**Rainbow Style:**
+```
+╭─ user@mac  ~/projects/myapp   main ✔  
+╰─ 
+```
+
+**Testing Git Features:**
+Navigate to a git repository to see git segments:
+```bash
+cd ~/projects/some-git-repo
+git status
+```
+
+You'll see:
+- ✔ if working directory is clean
+- ✘ if you have uncommitted changes
+- ⇡ number of commits ahead of remote
+- ⇣ number of commits behind remote
+- ✎ if you have staged changes
+
+**Further Customization:**
+
+The wizard created `~/.p10k.zsh` - this file contains all your settings:
+
+```bash
+# Edit Powerlevel10k configuration
+vi ~/.p10k.zsh
+
+# Common customizations:
+# - Enable/disable prompt segments
+# - Change colors
+# - Adjust segment order
+# - Add custom segments
+```
+
+**Quick customization examples:**
+
+Hide the username:
+```bash
+# In ~/.p10k.zsh, find the context section and modify these settings:
+typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
+typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
+# Note: Powerlevel10k uses POWERLEVEL9K variable names for backward compatibility
+# These may be commented out - uncomment them or add them to the file
+```
+
+Show Python version:
+```bash
+# In ~/.p10k.zsh, find POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS and add:
+# 'pyenv' or 'virtualenv'
+```
+
+> 💡 **Pro tip:** After editing `~/.p10k.zsh`, changes apply immediately - no need to run `source ~/.zshrc`!
+
+---
+
+### Option B: Agnoster (Alternative) 🔄
+
+If you prefer simplicity and don't need the advanced features of Powerlevel10k, Agnoster is still a solid choice.
+
+#### Quick Overview
+Agnoster is a clean, powerline-style theme that's included with Oh My Zsh. It shows user, directory, and git status in a visually appealing way.
+
+#### Installation
+
+```bash
+# Step 1: Clone enhanced Agnoster
+cd ~/OpenSource
+git clone https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor.git
+cd oh-my-zsh-agnoster-fcamblor/
+./install
+
+# Step 2: Update .zshrc
+# macOS:
+sed -i '' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' ~/.zshrc
+# Linux:
+# sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' ~/.zshrc
+
+# Step 3: Apply changes
 source ~/.zshrc
 ```
 
-**Option 2: Restart iTerm2 (clean)**
-```
-⌘Q (quit iTerm2) → Reopen iTerm2
-```
-
-**Verification:**
-Your prompt should now look like:
+#### Verification
+Your prompt should look like:
 ```
 ⚡ username  ~/projects  git:main ✓
 → 
 ```
 
-Instead of the old:
-```
-username ~ $ 
+#### Optional: Hide username
+Add to `~/.zshrc`:
+```bash
+DEFAULT_USER=$(whoami)
 ```
 
-> 💡 **Troubleshooting:**
-> - See squares/boxes? → Make sure you set a Powerline font (Step 4)
-> - No git segment? → Navigate to a git repository: `cd ~/projects/some-git-repo`
-> - Still default theme? → Did you `source ~/.zshrc`?
-
-> ⚠️ **Optional:** Hide your username if it's always you:
-> Add this to `~/.zshrc`:
-> ```bash
-> DEFAULT_USER=$(whoami)
-> ```
-> Then `source ~/.zshrc` - the username segment will be hidden on your machine!
+> 💡 **When to choose Agnoster:**
+> - You want a simple, no-configuration theme
+> - You don't need detailed git information
+> - You prefer a fixed, predictable prompt style
+> - You're happy with basic powerline aesthetics
 
 ---
 
@@ -1160,7 +1358,7 @@ Your `~/.zshrc` should look like this:
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Plugins (zsh-syntax-highlighting MUST be last)
 plugins=(
@@ -1213,6 +1411,9 @@ DEFAULT_USER=$(whoami)
 | Auto-suggestions too dim | Adjust in Preferences → Colors → ANSI Colors → Bright |
 | Changes not applying | Run `source ~/.zshrc` or restart iTerm2 (⌘Q, reopen) |
 | Permission denied | Run with `sudo` or check file permissions |
+| Powerlevel10k not loading | Ensure theme path is correct: `powerlevel10k/powerlevel10k` |
+| Want to reconfigure Powerlevel10k | Run `p10k configure` anytime |
+| Icons not showing in Powerlevel10k | Install recommended font: MesloLGS NF (p10k configure will prompt) |
 
 ---
 
@@ -1240,6 +1441,9 @@ For experienced users, here's a one-shot script:
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
+# Install Powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
 # Install plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -1251,10 +1455,11 @@ cd fonts && ./install.sh
 cd .. && rm -rf fonts
 
 echo "✅ Done! Now:"
-echo "1. Set ZSH_THEME=\"agnoster\" in ~/.zshrc"
+echo "1. Set ZSH_THEME=\"powerlevel10k/powerlevel10k\" in ~/.zshrc"
 echo "2. Add plugins: plugins=(git zsh-autosuggestions zsh-syntax-highlighting)"
-echo "3. Set iTerm2 font to 'Meslo LG M for Powerline'"
-echo "4. Run: source ~/.zshrc"
+echo "3. Run 'p10k configure' for interactive setup"
+echo "4. Set iTerm2 font to 'Meslo LG M for Powerline' (or run p10k configure to install recommended fonts)"
+echo "5. Run: source ~/.zshrc"
 ```
 
 ---
@@ -1264,6 +1469,7 @@ echo "4. Run: source ~/.zshrc"
 - Original guide: [sirius1024/iterm2-with-oh-my-zsh](https://github.com/sirius1024/iterm2-with-oh-my-zsh)
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 - [iTerm2](https://iterm2.com/)
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - [Powerline Fonts](https://github.com/powerline/fonts)
 - [Solarized](https://github.com/altercation/solarized)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
